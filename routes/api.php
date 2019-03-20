@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// route groups allows urls to have the same behavior
+
+Route::group(['prefix'=>'v1'], function(){
+    Route::get('products', ['as'=>'products', function(){
+        return App\Product::all();
+    }]);
+});
