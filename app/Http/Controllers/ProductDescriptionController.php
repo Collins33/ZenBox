@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Description;
 use Illuminate\Http\Request;
 
 class ProductDescriptionController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  product id  $productId
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($productId)
     {
-        //
+        // display descriptions that belong to a particular product
+        return Description::ofProduct($productId)->paginate();
     }
 
     /**

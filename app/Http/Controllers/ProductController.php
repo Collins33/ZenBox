@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,8 +12,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   // use paginate instead of all()
+        // this will get you extra metadata
+        return Product::paginate();
     }
 
     /**

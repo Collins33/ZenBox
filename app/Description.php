@@ -14,4 +14,14 @@ class Description extends Model
     {
         $this->belongsTo(Product::class);
     }
+    
+    /**
+     * Will modify the sql query
+     * to fetch description which match
+     * the product ID
+    */
+    public function scopeOfProduct($query, $productId)
+    {   // scopes are usefull to modify queries
+        return $query->where('product_id', $productId);
+    }
 }
