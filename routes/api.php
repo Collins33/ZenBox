@@ -20,7 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // route groups allows urls to have the same behavior
 
 Route::group(['prefix'=>'v1'], function(){
-    Route::get('products', ['as'=>'products', function(){
-        return App\Product::all();
-    }]);
+    // Route::get('products', ['as'=>'products', function(){
+    //     return App\Product::all();
+    // }]);
+    Route::resource('products', 'ProductController', ['only'=>['index', 'store', 'update']]);
+    Route::resource('products.descriptions', 'ProductDescriptionController', ['only'=>['index', 'store' ]]);
 });
