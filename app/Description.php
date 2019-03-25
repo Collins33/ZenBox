@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Description extends Model
 {   
+    // fillable describes the properities that will be mass assigned
+    public $fillable = ['product_id','body'];
     /**
      * Describes the relationship
      * with a product
